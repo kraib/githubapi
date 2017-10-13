@@ -1,4 +1,8 @@
-import { FETCH_ORGANISATION, FETCH_ORGANISATIONS } from "../constants";
+import {
+  FETCH_ORGANISATION_MEMBERS,
+  FETCH_ORGANISATION,
+  FETCH_ORGANISATIONS
+} from "../constants";
 
 export function fetchOrganisations() {
   return {
@@ -16,6 +20,17 @@ export function fetchOrganisation(name) {
     payload: {
       request: {
         url: `/orgs/${name}`
+      }
+    }
+  };
+}
+
+export function fetchOrganisationMembers(name) {
+  return {
+    type: FETCH_ORGANISATION_MEMBERS,
+    payload: {
+      request: {
+        url: `/orgs/${name}/members`
       }
     }
   };
